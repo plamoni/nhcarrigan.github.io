@@ -1,0 +1,40 @@
+.input {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  font-size: 2rem;
+  border: 2px solid var(--text);
+  margin-left: -1vw;
+}
+
+span {
+  width: 5%;
+  display: inline;
+  margin: 0;
+}
+
+input {
+  display: inline;
+  width: 90%;
+  font-size: 2rem;
+  background-color: var(--bg);
+  color: var(--text);
+  border: none;
+  font-family: "terminal", "Courier New", Courier, monospace;
+}
+
+input:focus {
+  outline: none;
+}
+
+.error {
+  background-color: #170003;
+  color: #ff001e;
+  font-size: 2rem;
+}
+
+.help {
+  background-color: #250030;
+  color: #e387ff;
+  font-size: 2rem;
+}

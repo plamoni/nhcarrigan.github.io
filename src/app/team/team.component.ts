@@ -1,18 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { team } from 'src/data/team';
-import { TeamMember } from 'src/interfaces/TeamMember';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-team',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './team.component.html',
-  styleUrls: ['./team.component.css'],
+  styleUrl: './team.component.css',
 })
-export class TeamComponent implements OnInit {
-  public team: TeamMember[] = [];
-
-  constructor() {}
-
-  ngOnInit(): void {
-    this.team = team;
+export class TeamComponent {
+  public employees = [
+    {
+      name: 'Naomi Carrigan',
+      link: 'https://naomi.lgbt',
+      title: 'Owner/Sole Proprietor',
+      avatar: 'naomi.png',
+      since: 'December 2020',
+    },
+  ];
+  public loading = true;
+  constructor() {
+    new Promise((resolve) => setTimeout(resolve, 5000)).then(
+      () => (this.loading = false)
+    );
   }
 }

@@ -1,132 +1,75 @@
-/* You can add global styles to this file, and also import other style files */
 :root {
-  --dark-blue: #00302c;
-  --dark-link: #8f007c;
-  --light-blue: #73fff1;
-  --light-link: #ff94f1;
-  --cursor-normal: url("https://cdn.nhcarrigan.com/cursors/cursor.cur");
-  --cursor-pointer: url("https://cdn.nhcarrigan.com/cursors/pointer.cur");
+  --bg: #00302c;
+  --text: #73fff1;
+}
 
-  /* Sponsor Colours */
-  --silver-sponsor: #607d8b;
-  --gold-sponsor: #f1c40f;
-  --platinum-sponsor: #95a5a6;
-  --amethyst-sponsor: #9b59b6;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 @font-face {
-  font-family: "Odudo";
-  src: url("https://cdn.nhcarrigan.com/fonts/odudomono.otf");
+  font-family: "terminal";
+  src: url("/assets/fonts/vt323.woff");
   font-display: swap;
 }
-
-html {
-  cursor: var(--cursor-normal), default;
-}
-
 body {
-  margin: 0;
-  background: url("https://cdn.nhcarrigan.com/banners/nhcarrigan.png") no-repeat
-    top center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  color: var(--dark-blue);
-  font-family: "Odudo", Courier, monospace;
-  text-align: center;
+  font-family: "terminal", "Courier New", Courier, monospace;
+  padding: 1vh 1vw;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
 }
 
-a {
-  cursor: var(--cursor-pointer), pointer;
-  color: var(--dark-link);
-}
-
-.light-link {
-  color: var(--light-link);
-}
-
-ul {
-  list-style: none;
-  padding-inline-start: 0;
-}
-
-.content {
-  margin: auto;
-  margin-top: 10px;
-  max-width: 750px;
-}
-
-li {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-.job-title {
-  font-weight: bold;
-  margin-bottom: 0;
-}
-
-.job-timeline {
-  font-style: italic;
-  margin-top: 0;
-}
-
-.corner {
-  height: 500px;
-  width: 250px;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-}
-
-.corner-left {
+body::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
   left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06)
+    );
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
 }
 
-.dialogue {
-  display: grid;
-  grid-template-columns: 100px auto;
+h1 {
+  font-size: 3rem;
 }
 
-.face {
-  width: 100px;
-  height: 100px;
+p {
+  font-size: 2rem;
 }
 
-/* NES.css Overrides */
-.nes-container.is-rounded {
-  background-color: rgb(115, 255, 241, 0.75);
+.type-this {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: type 5s forwards;
 }
 
-.nes-container.is-rounded.with-title.is-centered {
-  margin-bottom: 20px;
+.type-forever {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: type 1s infinite;
 }
 
-.nes-container.is-rounded.with-title.is-centered.is-dark {
-  margin-bottom: 20px;
-  background-color: var(--dark-blue);
-  color: var(--light-blue);
-}
-
-.nes-container.is-rounded.is-centered.is-dark {
-  margin-bottom: 20px;
-  background-color: var(--dark-blue);
-  color: var(--light-blue);
-}
-
-.nes-container.is-rounded.with-title.is-centered > .title {
-  background-color: var(--dark-blue);
-  color: var(--light-blue);
-  font-size: 1.5rem;
-}
-
-.nes-btn {
-  cursor: var(--cursor-pointer), pointer;
-}
-
-@media (max-width: 1100px) {
-  .corner {
-    display: none;
+@keyframes type {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
   }
 }

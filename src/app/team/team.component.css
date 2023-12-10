@@ -1,17 +1,22 @@
 table {
-    width: 50%;
-    margin: auto;
+  width: 500px;
+  min-width: 50%;
+  text-align: center;
 }
 
 thead {
-    font-size: 3rem;
-    font-family: "Vibur", sans-serif;
-    text-shadow:
-    /* White glow */ 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff,
-      /* Green glow */ 0 0 42px #f6e3ff, 0 0 82px #f6e3ff, 0 0 92px #f6e3ff,
-      0 0 102px #f6e3ff, 0 0 151px #f6e3ff;
+  font-size: 3rem;
 }
 
 td {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
+}
+
+a,
+a:visited {
+  color: var(--text);
+}
+
+.avatar {
+  filter: sepia() hue-rotate(130deg) saturate(500%);
 }

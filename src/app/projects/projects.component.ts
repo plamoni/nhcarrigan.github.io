@@ -1,48 +1,41 @@
-import { Component, OnInit } from '@angular/core';
-import { OrganisationName } from '../interfaces/RepositoryData';
-import { GithubRepository } from '../interfaces/Github';
-import { ProjectsService } from '../projects.service';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-projects',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css'],
+  styleUrl: './projects.component.css',
 })
-export class ProjectsComponent implements OnInit {
-  public projects: { [key in OrganisationName]: GithubRepository[] } = {
-    'naomi-lgbt': [],
-    nhcarrigan: [],
-  };
-  public orgs: OrganisationName[] = ['naomi-lgbt', 'nhcarrigan'];
-  public avatars: { [key in OrganisationName]: string } = {
-    'naomi-lgbt': 'https://cdn.nhcarrigan.com/profile.png',
-    nhcarrigan: 'https://cdn.nhcarrigan.com/avatars/nhcarrigan.png',
-  };
-  public descriptions: { [key in OrganisationName]: string } = {
-    'naomi-lgbt': "These are all of Naomi's personal projects.",
-    nhcarrigan: 'Projects built for clients, friends, or communities.',
-  };
-  public showList: { [key in OrganisationName]: boolean } = {
-    'naomi-lgbt': false,
-    nhcarrigan: false,
-  };
-
-  constructor(private projectsService: ProjectsService) {}
-
-  ngOnInit(): void {
-    this.projectsService.getRepos('naomi-lgbt').subscribe((data) => {
-      this.projects['naomi-lgbt'] = data
-        .sort((a, b) => b.stargazers_count - a.stargazers_count)
-        .slice(0, 5);
-    });
-    this.projectsService.getRepos('nhcarrigan').subscribe((data) => {
-      this.projects.nhcarrigan = data
-        .sort((a, b) => b.stargazers_count - a.stargazers_count)
-        .slice(0, 5);
-    });
-  }
-
-  toggleList(org: OrganisationName): void {
-    this.showList[org] = !this.showList[org];
+export class ProjectsComponent {
+  public projects = [
+    {
+      name: 'Becca Lyria',
+      link: 'https://becca.nhcarrigan.com',
+      title: 'Moderation/Community Management Discord Bot',
+      avatar: 'becca.png',
+      since: 'May 2020',
+    },
+    {
+      name: 'Beccalia',
+      link: 'https://nhcarrigan.itch.io',
+      title: 'RPGMaker Game Series',
+      avatar: 'beccalia.png',
+      since: 'November 2021',
+    },
+    {
+      name: 'Melody Iuvo',
+      link: 'https://github.com/naomi-lgbt/melody-iuvo',
+      title: 'Personal Assistant Discord Bot',
+      avatar: 'melody.png',
+      since: 'August 2023',
+    },
+  ];
+  public loading = true;
+  constructor() {
+    new Promise((resolve) => setTimeout(resolve, 5000)).then(
+      () => (this.loading = false)
+    );
   }
 }

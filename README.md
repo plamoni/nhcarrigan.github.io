@@ -1,29 +1,27 @@
-# NHCarrigan Homepage
+# Nhcarrigan
 
-This is the homepage for our development and community management consulting firm.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.2.
 
-## Live Version
+## Development server
 
-This page is currently deployed. [View the live website.](https://www.nhcarrigan.com)
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Feedback and Bugs
+## Code scaffolding
 
-If you have feedback or a bug report, please feel free to open a GitHub issue!
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Contributing
+## Build
 
-If you would like to contribute to the project, you may create a Pull Request containing your proposed changes and we will review it as soon as we are able! Please review our [contributing guidelines](CONTRIBUTING.md) first.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Code of Conduct
+## Running unit tests
 
-Before interacting with our community, please read our [Code of Conduct](CODE_OF_CONDUCT.md).
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## License
+## Running end-to-end tests
 
-This software is licensed under our [global software license](https://docs.nhcarrigan.com/#/license).
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-Copyright held by Naomi Carrigan.
+## Further help
 
-## Contact
-
-We may be contacted through our [Chat Server](http://chat.nhcarrigan.com) or via email at `contact@nhcarrigan.com`.
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
