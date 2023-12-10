@@ -1,23 +1,34 @@
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, Directive, Input, TemplateRef, ViewContainerRef, inject } from "@angular/core";
 
 const takeANap = (ms: number) =>
   new Promise((resolve) => setTimeout(resolve, ms));
 
+@Directive({
+  selector: '[delay]',
+  standalone: true,
+})
+export class Delay {
+  private readonly templateRef = inject(TemplateRef);
+  private readonly viewContainer = inject(ViewContainerRef);
+
+  @Input({ required: true, alias: 'delay' })
+  delayMs: number = 0;
+
+  async ngOnInit() {
+    await takeANap(this.delayMs);
+
+    this.viewContainer.createEmbeddedView(this.templateRef);
+  }
+}
+
 @Component({
   selector: "app-home",
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, Delay],
   templateUrl: "./home.component.html",
   styleUrl: "./home.component.css"
 })
 export class HomeComponent {
-  public first = false;
-  public second = false;
-  public third = false;
-  constructor() {
-    takeANap(5000).then(() => (this.first = true));
-    takeANap(10000).then(() => (this.second = true));
-    takeANap(15000).then(() => (this.third = true));
-  }
+
 }

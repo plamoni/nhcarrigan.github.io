@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed, fakeAsync, flush, tick } from '@angular/core/testing';
 
-import { HomeComponent } from "./home.component";
+import { Delay, HomeComponent } from "./home.component";
 
 describe('HomeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HomeComponent]
+      imports: [HomeComponent, Delay]
     })
     .compileComponents();
   });
@@ -31,6 +31,7 @@ describe('HomeComponent', () => {
   it('should show OS ready after 5 seconds', fakeAsync(() => {
     const fixture = TestBed.createComponent(HomeComponent);
     const component = fixture.componentInstance;
+    fixture.detectChanges();
 
     tick(5000);
     fixture.detectChanges();
@@ -43,6 +44,7 @@ describe('HomeComponent', () => {
   it('should show logging in after 10 seconds', fakeAsync(() => {
     const fixture = TestBed.createComponent(HomeComponent);
     const component = fixture.componentInstance;
+    fixture.detectChanges();
 
     tick(10000);
     fixture.detectChanges();
@@ -55,6 +57,7 @@ describe('HomeComponent', () => {
   it('should show auth successful message after 15 seconds', fakeAsync(() => {
     const fixture = TestBed.createComponent(HomeComponent);
     const component = fixture.componentInstance;
+    fixture.detectChanges();
 
     tick(15000);
     fixture.detectChanges();
